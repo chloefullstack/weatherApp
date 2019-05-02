@@ -2,6 +2,8 @@ import React from 'react';
 import './WeatherCard.css';
 import sunny from '../images/sunny.png';
 import axios from "axios";
+import mockData from "../mockData/weather"
+
 class WeatherCard extends React.Component {
     constructor(props) {
         super(props)
@@ -19,7 +21,7 @@ class WeatherCard extends React.Component {
     }
 
     getWeatherData = () => {
-        axios.get('https://samples.openweathermap.org/data/2.5/weather?q=London&appid=a054219d3462c71c21d9eaa3971a37d6').then(res => {
+        mockData.then(res => {
             this.setState({
                 city: res.city.name,
                 day: res.list.dt_txt,
