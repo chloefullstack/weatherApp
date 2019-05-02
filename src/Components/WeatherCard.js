@@ -13,40 +13,34 @@ class WeatherCard extends React.Component {
             lowest:67
         }
     }
+
+    componentDidMount() {
+        this.getWeatherData()
+    }
+
     getWeatherData = () => {
-        axios.get('https://samples.openweathermap.org/data/2.5/weather?q=London&appid=b6907d289e10d714a6e88b30761fae22').then(res => {
+        axios.get('https://samples.openweathermap.org/data/2.5/weather?q=London&appid=a054219d3462c71c21d9eaa3971a37d6').then(res => {
             this.setState({
                 city: res.city.name,
                 day: res.list.dt_txt,
                 weather: res.list.weather.main,
                 highest: res.list.main.temp_max,
                 lowest: res.list.main.temp_min
-            }
-
-            )
-        }
-
-        )
+            })
+        })
     }
     render() {
         // let { data } = this.state
         return <div>
             <div>
-                {/* {data.map((item, index) => ( */}
-                    <div className='card' >
-                        <div>{this.state.day}</div>
-                        <img src={sunny}></img>
-                        <div>{this.state.highest}  {this.state.lowest}</div>
-                    </div>
-                {/* )) */}
-                } 
+                <div className='card' >
+                    <div>{this.state.day}</div>
+                    <img src={sunny}></img>
+                    <div>{this.state.highest}  {this.state.lowest}</div>
+                </div>
             </div>
         </div>
-            
-        
-        
     }
-    
 }
 
 export default WeatherCard;
