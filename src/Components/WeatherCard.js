@@ -1,15 +1,32 @@
 import React from 'react';
 import './WeatherCard.css';
 import sunny from '../images/sunny.png';
+import axios from "axios";
 class WeatherCard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            city: '',
             day: 'Wed',
             weather: 'sunny',
             highest: 78,
             lowest:67
         }
+    }
+    getWeatherData = () => {
+        axios.get('https://samples.openweathermap.org/data/2.5/weather?q=London&appid=b6907d289e10d714a6e88b30761fae22').then(res => {
+            this.setState({
+                city: res.city.name,
+                day: res.list.dt_txt,
+                weather: res.list.weather.main,
+                highest: res.list.main.temp_max,
+                lowest: res.list.main.temp_min
+            }
+
+            )
+        }
+
+        )
     }
     render() {
         // let { data } = this.state
