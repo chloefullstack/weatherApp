@@ -13,3 +13,9 @@ img {
     height: 80px;
     margin: auto;
 }
+
+.setting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
