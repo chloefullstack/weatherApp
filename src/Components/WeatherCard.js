@@ -36,12 +36,12 @@ class WeatherCard extends React.Component {
     //get images depend on description fetch from res
     getImage = (main) => {
         if (main == 'sunny') { return sunny}
-        else if (main == 'rainy') { return rainy}
-        else if (main == 'windy') { return windy}
-        else if (main == 'lightsun') { return lightsun}
-        else if (main == 'lightrain') { return lightrain}
-        else if (main == 'snowy') { return snowy}
-        else if (main == 'cloudy') { return cloudy}
+        else if (main === 'rainy') { return rainy}
+        else if (main === 'windy') { return windy}
+        else if (main === 'lightsun') { return lightsun}
+        else if (main === 'lightrain') { return lightrain}
+        else if (main === 'snowy') { return snowy}
+        else if (main === 'cloudy') { return cloudy}
 
 
     }
